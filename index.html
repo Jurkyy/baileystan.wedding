@@ -387,9 +387,10 @@
         <button class="nav-button prev">&lt;</button>
         <button class="nav-button next">&gt;</button>
       </div>
+      <!-- Do we need a menu? no right or am I crazzzzzzzzzzzzzzzzy?
       <button class="menu-button">
         <span class="menu-icon">☰</span> MENU
-      </button>
+      </button> -->
       <h1 class="couple-name">Bailey & Stan</h1>
     </div>
 
@@ -409,47 +410,53 @@
         <div class="modal-content">
           <span class="close-modal">&times;</span>
           <h2 class="modal-title">RSVP</h2>
-          <form id="rsvpForm">
+          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+          <form id="rsvpForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLScdNf5YswV4738_QNlovOoKirDolwOUSbzeIizGBfGzPtTanw/formResponse"
+            target="hidden_iframe" method="post">
             <div class="form-group">
               <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" required>
+              <input type="text" id="name" name="entry.45105433" required>
             </div>
 
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required>
+              <input type="email" id="email" name="entry.1945682008" required>
             </div>
 
             <div class="form-group">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" required>
+              <input type="tel" id="phone" name="entry.1395374723" required>
             </div>
 
             <div class="form-group">
               <label for="address">Home Address</label>
-              <textarea id="address" name="address" rows="3" required></textarea>
+              <textarea id="address" name="entry.995118286" rows="3" required></textarea>
             </div>
 
             <div class="form-group">
               <label for="attendance">Will you be attending?</label>
-              <select id="attendance" name="attendance" required>
+              <select id="attendance" name="entry.342903257" required>
                 <option value="">Please select</option>
-                <option value="yes">Yes, I will attend</option>
-                <option value="no">No, I cannot attend</option>
+                <option value="Yes, I will attend">Yes, I will attend</option>
+                <option value="No, I cannot attend">No, I cannot attend</option>
               </select>
             </div>
 
             <div id="guestOptions" class="form-group" style="display:none;">
               <label for="guests">Number of guests (including yourself)</label>
-              <select id="guests" name="guests">
+              <select id="guests" name="entry.1018113308">
                 <option value="1">1</option>
                 <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
               </select>
             </div>
 
             <div id="dietaryOptions" class="form-group" style="display:none;">
               <label for="dietary">Dietary Restrictions</label>
-              <textarea id="dietary" name="dietary" rows="3"
+              <textarea id="dietary" name="entry.287412210" rows="3"
                 placeholder="Please let us know about any food allergies or dietary restrictions"></textarea>
             </div>
 
@@ -676,6 +683,16 @@
             </div>
           </div>
         </div>
+
+
+        <div class="qa-item">
+          <div class="qa-question">Other questions</div>
+          <div class="qa-answer">
+            <div class="qa-answer-content">
+              Please reach out to bailey.and.stan@gmail.com
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -780,9 +797,8 @@
         }
       });
 
-      // Toggle additional fields based on attendance
       attendanceSelect.addEventListener('change', function () {
-        if (this.value === 'yes') {
+        if (this.value === 'Yes, I will attend') {
           guestOptions.style.display = 'block';
           dietaryOptions.style.display = 'block';
         } else {
@@ -791,39 +807,28 @@
         }
       });
 
-      // Form submission
+      // Handle form submission
       rsvpForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        // In a real application, you would send this data to your server
-        const formData = {
-          name: document.getElementById('name').value,
-          email: document.getElementById('email').value,
-          phone: document.getElementById('phone').value,
-          address: document.getElementById('address').value,
-          attendance: document.getElementById('attendance').value,
-          guests: attendanceSelect.value === 'yes' ? document.getElementById('guests').value : '0',
-          dietary: attendanceSelect.value === 'yes' ? document.getElementById('dietary').value : '',
-          date: new Date().toISOString()
-        };
-
-        console.log('RSVP submitted:', formData);
+        // Don't prevent default - let the form submit to the iframe
 
         // Show success message
-        rsvpForm.style.display = 'none';
-        formSuccess.style.display = 'block';
-
-        // Reset form after 3 seconds and close modal
         setTimeout(function () {
-          rsvpForm.reset();
-          rsvpForm.style.display = 'block';
-          formSuccess.style.display = 'none';
-          modal.style.display = 'none';
-          document.body.style.overflow = '';
-        }, 3000);
+          rsvpForm.style.display = 'none';
+          formSuccess.style.display = 'block';
+
+          // Reset form after delay
+          setTimeout(function () {
+            rsvpForm.reset();
+            rsvpForm.style.display = 'block';
+            formSuccess.style.display = 'none';
+            document.getElementById('rsvpModal').style.display = 'none';
+            document.body.style.overflow = '';
+          }, 3000);
+        }, 1000);
       });
     });
   </script>
 </body>
+
 
 </html>
