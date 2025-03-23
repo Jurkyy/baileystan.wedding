@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Wedding - RSVP</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dexie/3.2.2/dexie.min.js"></script>
+    <script> src="script.js"</script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Wedding RSVP</h1>
+      <p class="date">August 15, 2025 | Lakeside Gardens</p>
+    </div>
+  </header>
+  
+  <div class="container">
+    <div class="main-content">
+      <div class="slideshow">
+        <div class="slide active" style="background-image: url('/api/placeholder/800/600');"></div>
+        <div class="slide" style="background-image: url('/api/placeholder/800/600');"></div>
+        <div class="slide" style="background-image: url('/api/placeholder/800/600');"></div>
+        <button class="nav-button prev">&lt;</button>
+        <button class="nav-button next">&gt;</button>
+        
+        <div class="couple-title">
+          <h2>Sarah & Michael</h2>
+          <p>Forever Begins Here</p>
+        </div>
+      </div>
+      
+      <div class="info-sections">
+        <div class="section">
+          <h2>Travel Options</h2>
+          <p>We're excited to welcome you to our celebration! Here are the best ways to reach our venue:</p>
+          
+          <div class="accordion-header">By Air</div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>The nearest airport is Springfield International Airport (SPI), about 25 minutes from the venue. We recommend arranging a rental car or using a rideshare service like Uber or Lyft.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-header">By Car</div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Lakeside Gardens is located at 123 Lake View Road, Springfield. Free parking is available on site.</p>
+              <p>From the north: Take Highway 45 South to Exit 23, then follow Lake View Road for 2 miles.</p>
+              <p>From the south: Take Interstate 90 North to Exit 115, then follow the signs for Lakeside Gardens.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-header">Shuttle Service</div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>We're providing a complimentary shuttle service between the recommended hotels and the venue. The shuttle will run from 3:00 PM to 1:00 AM.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="section">
+          <h2>Accommodation</h2>
+          <p>We've arranged special rates at these local hotels for our wedding guests:</p>
+          
+          <div class="accordion-header">Lakeside Inn (Wedding Block)</div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p><strong>Address:</strong> 456 Shoreline Drive, Springfield</p>
+              <p><strong>Rate:</strong> $149/night</p>
+              <p><strong>Distance from venue:</strong> 5 minutes</p>
+              <p>To book: Call (555) 123-4567 and mention "Smith-Johnson Wedding" for our special rate. Book by July 15 to secure this rate.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-header">Grand Hotel Springfield</div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p><strong>Address:</strong> 789 Main Street, Springfield</p>
+              <p><strong>Rate:</strong> $179/night</p>
+              <p><strong>Distance from venue:</strong> 15 minutes</p>
+              <p>To book: Visit their website and use code WEDDING2025 for a 10% discount.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-header">Cozy Bed & Breakfast</div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p><strong>Address:</strong> 321 Oak Lane, Springfield</p>
+              <p><strong>Rate:</strong> $120/night</p>
+              <p><strong>Distance from venue:</strong> 10 minutes</p>
+              <p>Perfect for a more intimate stay. Limited rooms available, please book early by calling (555) 987-6543.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="section">
+          <h2>Q&A</h2>
+          
+          <div class="accordion-header">What's the dress code?</div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Semi-formal/cocktail attire. The ceremony and reception will be outdoors on grass, so please consider appropriate footwear.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-header">Can I bring a plus-one?</div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Due to venue limitations, we can only accommodate the guests named on your invitation. Thank you for understanding.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-header">Are children welcome?</div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>We love your little ones, but our wedding will be an adults-only celebration. We hope this gives you an opportunity for a night out!</p>
+            </div>
+          </div>
+          
+          <div class="accordion-header">What about gifts?</div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Your presence is our present! However, if you wish to give something, we've created a registry at <a href="#">WeddingRegistry.com</a>.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-header">Will there be vegetarian/vegan options?</div>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Yes! Please indicate any dietary restrictions in your RSVP so we can accommodate your needs.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="section">
+          <h2>Notes From The Couple</h2>
+          <p>We're so excited to celebrate our special day with you! Our journey together has been amazing, and having our loved ones witness our commitment to each other means the world to us.</p>
+          <p>The ceremony will begin promptly at 4:30 PM, followed by cocktail hour and reception. Dancing and celebration will continue until midnight.</p>
+          <p>For those arriving early or staying late, we've arranged a welcome brunch on Friday and a farewell lunch on Sunday. Details will be shared with those who RSVP.</p>
+          <p>If you have any questions not covered here, please don't hesitate to contact us at sarahandmichael@wedding.com</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="rsvp-form">
+      <h2>RSVP</h2>
+      <p>Please submit your RSVP by July 1, 2025</p>
+      
+      <form id="rsvpForm">
+        <div class="form-group">
+          <label for="name">Full Name*</label>
+          <input type="text" id="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email*</label>
+          <input type="email" id="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone">
+        </div>
+        
+        <div class="form-group">
+          <label for="attendance">Will you be attending?*</label>
+          <select id="attendance" required>
+            <option value="">Please select</option>
+            <option value="yes">Joyfully Accept</option>
+            <option value="no">Regretfully Decline</option>
+          </select>
+        </div>
+        
+        <div class="form-group" id="guestsGroup" style="display: none;">
+          <label for="numGuests">Number of guests in your party (including yourself)*</label>
+          <select id="numGuests">
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+        
+        <div class="form-group" id="mealGroup" style="display: none;">
+          <label for="meal">Meal Preference*</label>
+          <select id="meal">
+            <option value="">Please select</option>
+            <option value="beef">Beef - Grilled Filet Mignon</option>
+            <option value="chicken">Chicken - Herb Roasted Breast</option>
+            <option value="fish">Fish - Seared Salmon</option>
+            <option value="vegetarian">Vegetarian - Stuffed Bell Peppers</option>
+            <option value="vegan">Vegan - Wild Mushroom Risotto</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="specialRequests">Special Requests or Dietary Restrictions</label>
+          <textarea id="specialRequests"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="song">Song Request (to get you on the dance floor!)</label>
+          <input type="text" id="song">
+        </div>
+        
+        <button type="submit">Submit RSVP</button>
+      </form>
+      
+      <div class="success-message" id="successMessage">
+        Thank you for your RSVP! We're looking forward to celebrating with you.
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <p>Sarah & Michael | August 15, 2025 | Lakeside Gardens</p>
+      <p>Questions? Contact us at sarahandmichael@wedding.com</p>
+    </div>
+  </footer>
+  
+</body>
+</html>
