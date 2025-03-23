@@ -228,6 +228,150 @@
     .attendance-button:hover {
       background: #f5f5f5;
     }
+
+    .slideshow {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      transition: background 0.3s;
+    }
+
+    .nav-button:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .prev {
+      left: 20px;
+    }
+
+    .next {
+      right: 20px;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 30px;
+      border: 1px solid #ddd;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 4px;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close-modal:hover {
+      color: #333;
+    }
+
+    .modal-title {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    .submit-button {
+      background-color: #f0f0f0;
+      color: #333;
+      border: 1px solid #ddd;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 4px;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .submit-button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .form-success {
+      text-align: center;
+      padding: 20px;
+      color: #4CAF50;
+      font-size: 18px;
+    }
   </style>
 </head>
 
@@ -235,7 +379,14 @@
   <div class="page-container">
     <!-- Left section with image -->
     <div class="hero-section">
-      <div class="slide active" style="background-image: url('/images/20240716_194752_Original.jpeg');"></div>
+      <div class="slideshow">
+        <div class="slide active" style="background-image: url('/images/20240716_194752_Original.jpeg');"></div>
+        <div class="slide" style="background-image: url('/images/80034681-2b4c-4608-86d9-f11ce6b2d3e9.jpeg');"></div>
+        <div class="slide" style="background-image: url('/images/Facetune_06-08-2024-21-05-46.jpeg');"></div>
+        <div class="slide" style="background-image: url('/images/IMG_0303.jpeg');"></div>
+        <button class="nav-button prev">&lt;</button>
+        <button class="nav-button next">&gt;</button>
+      </div>
       <button class="menu-button">
         <span class="menu-icon">☰</span> MENU
       </button>
@@ -249,9 +400,65 @@
         <p class="wedding-location">Maastricht, Netherlands</p>
       </div>
 
-      <div class="guest-greeting">
-        <p>Hello Wolf Bubberman. <a href="#">Not You?</a></p>
-        <button class="attendance-button">You Are Attending</button>
+      <div class="rsvp-greeting">
+        <button id="rsvpButton" class="attendance-button">RSVP Now</button>
+      </div>
+
+      <!-- RSVP Modal -->
+      <div id="rsvpModal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h2 class="modal-title">RSVP</h2>
+          <form id="rsvpForm">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Home Address</label>
+              <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="attendance">Will you be attending?</label>
+              <select id="attendance" name="attendance" required>
+                <option value="">Please select</option>
+                <option value="yes">Yes, I will attend</option>
+                <option value="no">No, I cannot attend</option>
+              </select>
+            </div>
+
+            <div id="guestOptions" class="form-group" style="display:none;">
+              <label for="guests">Number of guests (including yourself)</label>
+              <select id="guests" name="guests">
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </div>
+
+            <div id="dietaryOptions" class="form-group" style="display:none;">
+              <label for="dietary">Dietary Restrictions</label>
+              <textarea id="dietary" name="dietary" rows="3"
+                placeholder="Please let us know about any food allergies or dietary restrictions"></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Submit RSVP</button>
+          </form>
+          <div id="formSuccess" class="form-success" style="display:none;">
+            Thank you for your RSVP! We look forward to celebrating with you.
+          </div>
+        </div>
       </div>
 
       <div class="section-title">
@@ -494,6 +701,126 @@
             answer.style.maxHeight = answerContent.scrollHeight + "px";
           }
         });
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Slideshow functionality
+      const slides = document.querySelectorAll('.slide');
+      const prevButton = document.querySelector('.prev');
+      const nextButton = document.querySelector('.next');
+      let currentSlide = 0;
+
+      function showSlide(index) {
+        // Hide all slides
+        slides.forEach(slide => slide.classList.remove('active'));
+
+        // Determine the correct index
+        if (index >= slides.length) {
+          currentSlide = 0;
+        } else if (index < 0) {
+          currentSlide = slides.length - 1;
+        } else {
+          currentSlide = index;
+        }
+
+        // Show the current slide
+        slides[currentSlide].classList.add('active');
+      }
+
+      // Auto advance slides
+      let slideInterval = setInterval(() => {
+        showSlide(currentSlide + 1);
+      }, 5000);
+
+      // Navigation buttons
+      prevButton.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        showSlide(currentSlide - 1);
+        slideInterval = setInterval(() => {
+          showSlide(currentSlide + 1);
+        }, 5000);
+      });
+
+      nextButton.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        showSlide(currentSlide + 1);
+        slideInterval = setInterval(() => {
+          showSlide(currentSlide + 1);
+        }, 5000);
+      });
+
+      // RSVP Modal functionality
+      const modal = document.getElementById('rsvpModal');
+      const openModalBtn = document.getElementById('rsvpButton');
+      const closeModal = document.querySelector('.close-modal');
+      const rsvpForm = document.getElementById('rsvpForm');
+      const attendanceSelect = document.getElementById('attendance');
+      const guestOptions = document.getElementById('guestOptions');
+      const dietaryOptions = document.getElementById('dietaryOptions');
+      const formSuccess = document.getElementById('formSuccess');
+
+      // Open modal
+      openModalBtn.addEventListener('click', function () {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
+      });
+
+      // Close modal
+      closeModal.addEventListener('click', function () {
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // Restore scrolling
+      });
+
+      // Close modal when clicking outside
+      window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Toggle additional fields based on attendance
+      attendanceSelect.addEventListener('change', function () {
+        if (this.value === 'yes') {
+          guestOptions.style.display = 'block';
+          dietaryOptions.style.display = 'block';
+        } else {
+          guestOptions.style.display = 'none';
+          dietaryOptions.style.display = 'none';
+        }
+      });
+
+      // Form submission
+      rsvpForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // In a real application, you would send this data to your server
+        const formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          address: document.getElementById('address').value,
+          attendance: document.getElementById('attendance').value,
+          guests: attendanceSelect.value === 'yes' ? document.getElementById('guests').value : '0',
+          dietary: attendanceSelect.value === 'yes' ? document.getElementById('dietary').value : '',
+          date: new Date().toISOString()
+        };
+
+        console.log('RSVP submitted:', formData);
+
+        // Show success message
+        rsvpForm.style.display = 'none';
+        formSuccess.style.display = 'block';
+
+        // Reset form after 3 seconds and close modal
+        setTimeout(function () {
+          rsvpForm.reset();
+          rsvpForm.style.display = 'block';
+          formSuccess.style.display = 'none';
+          modal.style.display = 'none';
+          document.body.style.overflow = '';
+        }, 3000);
       });
     });
   </script>
