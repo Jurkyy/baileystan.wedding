@@ -1,48 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Wedding - RSVP</title>
+  <title>Bailey & Stan - RSVP</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dexie/3.2.2/dexie.min.js"></script>
-    <script> src="script.js"</script>
-    <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <header>
-    <div class="container">
-      <h1>Wedding RSVP</h1>
-      <p class="date">August 15, 2025 | Lakeside Gardens</p>
-    </div>
-  </header>
-  
-  <div class="container">
-    <div class="main-content">
+  <div class="page-container">
+    <!-- Left section with full-height image -->
+    <div class="hero-section">
       <div class="slideshow">
-        <div class="slide active" style="background-image: url('/api/placeholder/800/600');"></div>
-        <div class="slide" style="background-image: url('/api/placeholder/800/600');"></div>
-        <div class="slide" style="background-image: url('/api/placeholder/800/600');"></div>
+        <div class="slide active" style="background-image: url('/images/20240716_194752_Original.jpeg');"></div>
+        <div class="slide" style="background-image: url('/images/80034681-2b4c-4608-86d9-f11ce6b2d3e9.jpeg');"></div>
+        <div class="slide" style="background-image: url('/images/Facetune_06-08-2024-21-05-46.jpeg');"></div>
         <button class="nav-button prev">&lt;</button>
         <button class="nav-button next">&gt;</button>
-        
-        <div class="couple-title">
-          <h2>Sarah & Michael</h2>
-          <p>Forever Begins Here</p>
-        </div>
+
       </div>
-      
+      <button class="menu-button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        MENU
+      </button>
+      <h1 class="couple-name">Bailey & Stan</h1>
+    </div>
+
+    <!-- Right section with RSVP info -->
+    <div class="rsvp-section">
+      <div class="background-initial">S</div>
+
+      <div style="position: relative; z-index: 1; width: 100%;">
+        <h2 class="wedding-date">Saturday<br>August 30, 2025</h2>
+        <p class="wedding-location">Maastricht, Netherlands</p>
+
+        <p class="greeting">Hello Wolf Bubberman. <a href="#">Not You?</a></p>
+
+        <button class="attendance-button">You Are Attending</button>
+      </div>
+
       <div class="info-sections">
         <div class="section">
           <h2>Travel Options</h2>
           <p>We're excited to welcome you to our celebration! Here are the best ways to reach our venue:</p>
-          
+
           <div class="accordion-header">By Air</div>
           <div class="accordion-content">
             <div class="accordion-content-inner">
-              <p>The nearest airport is Springfield International Airport (SPI), about 25 minutes from the venue. We recommend arranging a rental car or using a rideshare service like Uber or Lyft.</p>
+              <p>For those flying from the USA to Maastricht, you have three major international airports you can fly
+                into:
+
+                Amsterdam Schiphol Airport (AMS)
+
+                • Distance from Maastricht: About 2 hours by train (approximately 200 km).
+
+                • Flight Details: Amsterdam Schiphol is the largest international airport in the Netherlands, offering
+                numerous direct transatlantic flights to and from major cities across the USA.
+
+                • Travel to Maastricht: From Schiphol, you can take a direct Intercity train to Maastricht Central
+                Station, which takes around 2 hours. From there, you can use local transport (bus, taxi, or walking) to
+                reach Van Oys.
+
+                • Advantages: Schiphol is well-connected to major US cities like New York, Chicago, and Los Angeles.
+
+                Brussels Airport (BRU)
+
+                • Distance from Maastricht: About 1.5 hours by car (around 115 km).
+
+                • Flight Details: Brussels offers direct flights to many U.S. cities, including New York, Chicago, and
+                Washington D.C.
+
+                • Travel to Maastricht: From Brussels Airport, you can take a train to Maastricht via Brussels Central
+                Station (around 2-2.5 hours total). Alternatively, a private car or taxi could be a more direct option.
+
+                • Advantages: As a major international hub, Brussels offers more flexibility with flight options.
+
+                Frankfurt Airport (FRA)
+
+                • Distance from Maastricht: Around 3 hours by car (approximately 230 km).
+
+                • Flight Details: Frankfurt is a major international hub with direct transatlantic flights from many
+                U.S. cities, including New York, Los Angeles, and San Francisco.
+
+                • Travel to Maastricht: From Frankfurt Airport, you can take a high-speed train (ICE) to Maastricht,
+                which takes around 3.5 hours. Alternatively, a rental car or taxi could be used for more direct access.
+
+                • Advantages: Frankfurt is one of Europe’s busiest airports, offering numerous flight options from the
+                U.S.
+
+                Travel Recommendations:
+                • Best Option for Convenience: Amsterdam Schiphol (AMS) is the most convenient, as it has the most
+                frequent connections to North America and is directly linked to Maastricht by train.
+                • Other Options: Brussels Airport (BRU) is another great choice, especially if you are flying from East
+                Coast U.S. cities, while Frankfurt (FRA) is ideal for those with flights from the U.S. that may have
+                fewer options into Amsterdam or Brussels.</p>
             </div>
           </div>
-          
+
           <div class="accordion-header">By Car</div>
           <div class="accordion-content">
             <div class="accordion-content-inner">
@@ -51,29 +111,31 @@
               <p>From the south: Take Interstate 90 North to Exit 115, then follow the signs for Lakeside Gardens.</p>
             </div>
           </div>
-          
+
           <div class="accordion-header">Shuttle Service</div>
           <div class="accordion-content">
             <div class="accordion-content-inner">
-              <p>We're providing a complimentary shuttle service between the recommended hotels and the venue. The shuttle will run from 3:00 PM to 1:00 AM.</p>
+              <p>We're providing a complimentary shuttle service between the recommended hotels and the venue. The
+                shuttle will run from 3:00 PM to 1:00 AM.</p>
             </div>
           </div>
         </div>
-        
+
         <div class="section">
           <h2>Accommodation</h2>
           <p>We've arranged special rates at these local hotels for our wedding guests:</p>
-          
+
           <div class="accordion-header">Lakeside Inn (Wedding Block)</div>
           <div class="accordion-content">
             <div class="accordion-content-inner">
               <p><strong>Address:</strong> 456 Shoreline Drive, Springfield</p>
               <p><strong>Rate:</strong> $149/night</p>
               <p><strong>Distance from venue:</strong> 5 minutes</p>
-              <p>To book: Call (555) 123-4567 and mention "Smith-Johnson Wedding" for our special rate. Book by July 15 to secure this rate.</p>
+              <p>To book: Call (555) 123-4567 and mention "Smith-Johnson Wedding" for our special rate. Book by July 15
+                to secure this rate.</p>
             </div>
           </div>
-          
+
           <div class="accordion-header">Grand Hotel Springfield</div>
           <div class="accordion-content">
             <div class="accordion-content-inner">
@@ -83,49 +145,54 @@
               <p>To book: Visit their website and use code WEDDING2025 for a 10% discount.</p>
             </div>
           </div>
-          
+
           <div class="accordion-header">Cozy Bed & Breakfast</div>
           <div class="accordion-content">
             <div class="accordion-content-inner">
               <p><strong>Address:</strong> 321 Oak Lane, Springfield</p>
               <p><strong>Rate:</strong> $120/night</p>
               <p><strong>Distance from venue:</strong> 10 minutes</p>
-              <p>Perfect for a more intimate stay. Limited rooms available, please book early by calling (555) 987-6543.</p>
+              <p>Perfect for a more intimate stay. Limited rooms available, please book early by calling (555) 987-6543.
+              </p>
             </div>
           </div>
         </div>
-        
+
         <div class="section">
           <h2>Q&A</h2>
-          
+
           <div class="accordion-header">What's the dress code?</div>
           <div class="accordion-content">
             <div class="accordion-content-inner">
-              <p>Semi-formal/cocktail attire. The ceremony and reception will be outdoors on grass, so please consider appropriate footwear.</p>
+              <p>Semi-formal/cocktail attire. The ceremony and reception will be outdoors on grass, so please consider
+                appropriate footwear.</p>
             </div>
           </div>
-          
+
           <div class="accordion-header">Can I bring a plus-one?</div>
           <div class="accordion-content">
             <div class="accordion-content-inner">
-              <p>Due to venue limitations, we can only accommodate the guests named on your invitation. Thank you for understanding.</p>
+              <p>Due to venue limitations, we can only accommodate the guests named on your invitation. Thank you for
+                understanding.</p>
             </div>
           </div>
-          
+
           <div class="accordion-header">Are children welcome?</div>
           <div class="accordion-content">
             <div class="accordion-content-inner">
-              <p>We love your little ones, but our wedding will be an adults-only celebration. We hope this gives you an opportunity for a night out!</p>
+              <p>We love your little ones, but our wedding will be an adults-only celebration. We hope this gives you an
+                opportunity for a night out!</p>
             </div>
           </div>
-          
+
           <div class="accordion-header">What about gifts?</div>
           <div class="accordion-content">
             <div class="accordion-content-inner">
-              <p>Your presence is our present! However, if you wish to give something, we've created a registry at <a href="#">WeddingRegistry.com</a>.</p>
+              <p>Your presence is our present! However, if you wish to give something, we've created a registry at <a
+                  href="#">WeddingRegistry.com</a>.</p>
             </div>
           </div>
-          
+
           <div class="accordion-header">Will there be vegetarian/vegan options?</div>
           <div class="accordion-content">
             <div class="accordion-content-inner">
@@ -133,91 +200,31 @@
             </div>
           </div>
         </div>
-        
+
         <div class="section">
           <h2>Notes From The Couple</h2>
-          <p>We're so excited to celebrate our special day with you! Our journey together has been amazing, and having our loved ones witness our commitment to each other means the world to us.</p>
-          <p>The ceremony will begin promptly at 4:30 PM, followed by cocktail hour and reception. Dancing and celebration will continue until midnight.</p>
-          <p>For those arriving early or staying late, we've arranged a welcome brunch on Friday and a farewell lunch on Sunday. Details will be shared with those who RSVP.</p>
-          <p>If you have any questions not covered here, please don't hesitate to contact us at sarahandmichael@wedding.com</p>
+          <p>We're so excited to celebrate our special day with you! Our journey together has been amazing, and having
+            our loved ones witness our commitment to each other means the world to us.</p>
+          <p>The ceremony will begin promptly at 4:30 PM, followed by cocktail hour and reception. Dancing and
+            celebration will continue until midnight.</p>
+          <p>For those arriving early or staying late, we've arranged a welcome brunch on Friday and a farewell lunch on
+            Sunday. Details will be shared with those who RSVP.</p>
+          <p>If you have any questions not covered here, please don't hesitate to contact us at
+            sarahandmichael@wedding.com</p>
         </div>
-      </div>
-    </div>
-    
-    <div class="rsvp-form">
-      <h2>RSVP</h2>
-      <p>Please submit your RSVP by July 1, 2025</p>
-      
-      <form id="rsvpForm">
-        <div class="form-group">
-          <label for="name">Full Name*</label>
-          <input type="text" id="name" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="email">Email*</label>
-          <input type="email" id="email" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone">
-        </div>
-        
-        <div class="form-group">
-          <label for="attendance">Will you be attending?*</label>
-          <select id="attendance" required>
-            <option value="">Please select</option>
-            <option value="yes">Joyfully Accept</option>
-            <option value="no">Regretfully Decline</option>
-          </select>
-        </div>
-        
-        <div class="form-group" id="guestsGroup" style="display: none;">
-          <label for="numGuests">Number of guests in your party (including yourself)*</label>
-          <select id="numGuests">
-            <option value="1">1</option>
-            <option value="2">2</option>
-          </select>
-        </div>
-        
-        <div class="form-group" id="mealGroup" style="display: none;">
-          <label for="meal">Meal Preference*</label>
-          <select id="meal">
-            <option value="">Please select</option>
-            <option value="beef">Beef - Grilled Filet Mignon</option>
-            <option value="chicken">Chicken - Herb Roasted Breast</option>
-            <option value="fish">Fish - Seared Salmon</option>
-            <option value="vegetarian">Vegetarian - Stuffed Bell Peppers</option>
-            <option value="vegan">Vegan - Wild Mushroom Risotto</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="specialRequests">Special Requests or Dietary Restrictions</label>
-          <textarea id="specialRequests"></textarea>
-        </div>
-        
-        <div class="form-group">
-          <label for="song">Song Request (to get you on the dance floor!)</label>
-          <input type="text" id="song">
-        </div>
-        
-        <button type="submit">Submit RSVP</button>
-      </form>
-      
-      <div class="success-message" id="successMessage">
-        Thank you for your RSVP! We're looking forward to celebrating with you.
       </div>
     </div>
   </div>
-  
+
   <footer>
     <div class="container">
-      <p>Sarah & Michael | August 15, 2025 | Lakeside Gardens</p>
-      <p>Questions? Contact us at sarahandmichael@wedding.com</p>
+      <p>Bailey & Stan | August 30, 2025 | Maastricht, Netherlands</p>
+      <p>Questions? Contact us at bailey.and.stan@gmail.com</p>
     </div>
   </footer>
-  
+
 </body>
+
+<script src="script.js"></script>
+
 </html>
