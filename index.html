@@ -30,10 +30,15 @@
     }
 
     .hero-section {
+      position: relative;
       flex: 1;
       height: 100vh;
+    }
+
+    .slideshow {
+      width: 100%;
+      height: 100%;
       position: relative;
-      background-color: #333;
     }
 
     .slide {
@@ -42,12 +47,211 @@
       left: 0;
       width: 100%;
       height: 100%;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
       background-size: cover;
       background-position: center;
     }
 
     .slide.active {
-      display: block;
+      opacity: 1;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.3s;
+    }
+
+    .nav-button:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .prev {
+      left: 20px;
+    }
+
+    .next {
+      right: 20px;
+    }
+
+    /* Fix for mobile layout with proper image display */
+    @media screen and (max-width: 768px) {
+
+      /* Container fixes */
+      .page-container {
+        flex-direction: column;
+        width: 100%;
+        overflow-x: hidden;
+        /* Prevent horizontal scrolling */
+        height: auto;
+        /* Allow container to expand as needed */
+      }
+
+      /* Hero section fixes - ensure image is visible */
+      .hero-section {
+        flex: none;
+        height: 40vh;
+        /* Set to 40% of viewport height */
+        min-height: 250px;
+        /* Ensure minimum height */
+        position: relative;
+        width: 100%;
+        order: -1;
+        /* Keep at top */
+        overflow: hidden;
+        /* Prevent overflow */
+      }
+
+      /* Slideshow and slide fixes */
+      .slideshow {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+      }
+
+      .slide.active {
+        opacity: 1;
+        display: block;
+        /* Ensure visible */
+      }
+
+      /* Hide couple name */
+      .couple-name {
+        display: none;
+      }
+
+      /* RSVP section fixes */
+      .rsvp-section {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px 15px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        height: auto;
+        /* Allow to expand */
+        min-height: 60vh;
+        /* Ensure it takes remaining space */
+      }
+
+      /* Fix text containers */
+      .section-content,
+      .qa-answer-content,
+      p,
+      .wedding-location,
+      .wedding-date {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+      }
+
+      /* Fix for travel options section */
+      .section-title {
+        font-size: 20px;
+        margin: 30px 0 15px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Adjust section icon */
+      .section-icon {
+        margin: 10px auto;
+      }
+
+      /* RSVP button */
+      .attendance-button,
+      #rsvpButton {
+        width: 80%;
+        max-width: 250px;
+        margin: 20px auto;
+        box-sizing: border-box;
+      }
+
+      /* Accordion content */
+      .qa-section {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+      }
+
+      .qa-question,
+      .qa-answer-content {
+        padding-left: 5px;
+        padding-right: 20px;
+        box-sizing: border-box;
+      }
+
+      /* Navigation buttons - ensure they're visible */
+      .nav-button {
+        width: 30px;
+        height: 30px;
+        z-index: 100;
+        opacity: 0.8;
+      }
+
+      /* Force text wrapping for all elements */
+      * {
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      }
+
+      /* Fix for images */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    /* Extra small devices */
+    @media screen and (max-width: 375px) {
+      .hero-section {
+        min-height: 200px;
+        /* Slightly smaller for very small screens */
+      }
+
+      .section-title {
+        font-size: 18px;
+      }
+
+      .rsvp-section {
+        padding: 15px 10px;
+      }
+
+      .qa-question {
+        font-size: 14px;
+      }
     }
 
     .couple-name {
@@ -78,6 +282,7 @@
     .menu-icon {
       margin-right: 5px;
     }
+
 
     .rsvp-section {
       width: 450px;
@@ -482,7 +687,7 @@
           <div class="qa-answer">
             <div class="qa-answer-content">
               <p>For those flying from the USA to Maastricht, you have three major international airports you can fly
-                into:</p>
+                into:</p><br>
 
               <p><strong>Amsterdam Schiphol Airport (AMS)</strong></p>
               <ul style="text-align: left; margin-left: 20px; margin-bottom: 15px;">
