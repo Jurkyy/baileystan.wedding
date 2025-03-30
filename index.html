@@ -301,7 +301,7 @@
       border: none;
       border-radius: 20px;
       padding: 8px 16px;
-      font-size: 14px;
+      font-size: 20px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -312,6 +312,17 @@
       margin-right: 5px;
     }
 
+    .logo-wrapper {
+      display: flex;
+      justify-content: center;  /* horizontal */
+      align-items: center;      /* vertical */
+
+    }
+
+    .logo-img {
+      width: 150px;
+
+    }
 
     .rsvp-section {
       width: 700px;
@@ -425,7 +436,7 @@
     .wedding-date {
       text-transform: uppercase;
       letter-spacing: 1px;
-      font-size: 14px;
+      font-size: 18px;
       margin-bottom: 5px;
     }
 
@@ -457,6 +468,7 @@
       text-align: center;
       cursor: pointer;
       transition: all 0.3s;
+      font-size: 14px;
     }
 
     .attendance-button:hover {
@@ -653,8 +665,20 @@
         <p class="wedding-location">Maastricht, Netherlands</p>
       </div>
 
+      <div class="logo-wrapper">
+        <img src="images/BSlogo.png" class="logo-img" alt="Logo">
+      </div>
+
+      <div class="section-content">
+        <p>We're excited to welcome you to our celebration!</p>
+      </div>      
+
       <div class="rsvp-greeting">
         <button id="rsvpButton" class="attendance-button">RSVP Now</button>
+      </div>
+
+      <div class="section-content">
+        <p>This page is meant to help you plan for attending our wedding, especially for our overseas friends & family.</p>
       </div>
 
       <!-- RSVP Modal -->
@@ -701,15 +725,19 @@
               <select id="guests" name="entry.1018113308">
                 <option value="1">1</option>
                 <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
               </select>
+            </div>
+            
+            <div id="namePlusone" class="form-group" style="display:none;">
+              <label for="namePlusone">Name plus one</label>
+              <textarea id="namePlusone" name="entry.918865724" rows="1"
+                placeholder=""></textarea>
             </div>
 
             <div id="dietaryOptions" class="form-group" style="display:none;">
               <label for="dietary">Dietary Restrictions</label>
               <textarea id="dietary" name="entry.287412210" rows="3"
-                placeholder="Please let us know about any food allergies or dietary restrictions"></textarea>
+                placeholder=""></textarea>
             </div>
 
             <button type="submit" class="submit-button">Submit RSVP</button>
@@ -725,7 +753,7 @@
       </div>
       <div class="section-icon">✈️</div>
       <div class="section-content">
-        <p>We're excited to welcome you to our celebration! Here are the best ways to reach our venue:</p>
+        <p>Here are the best ways to reach our venue:</p>
       </div>
 
       <div class="qa-section">
@@ -821,7 +849,7 @@
       <div class="section-icon">🍽️</div>
       <div class="section-content">
         <p>The evening before the wedding (29th), we will organize a dinner at a restaurant in Maastricht for those who are already in town. 
-          This is not a mandatory rehearsal dinner, but please mention in the RSVP if you would like to join.</p>
+          This is not a mandatory rehearsal dinner, but please mention in the RSVP whether you would like to join.</p>
         <br>
         <p>Some Maastricht restaurant suggestions:</p>
       </div>
@@ -839,7 +867,7 @@
       <div class="section-content">
         <p>Maastricht central station is a 15 minute busride away from the venue, which makes any hotel in or around Maastricht a solid option. We will provide some recommendations in this section over the next couple of weeks.</p>
         <br>
-        <p>Staying at the Van Oys venue itself is also an option. Van Oys is a luxurious 5-star Hotel & Spa retreat. Rooms will become available from April 1st. 
+        <p>Staying at the Van Oys venue itself is also an option (<a href="https://www.vanoys.com/">Link</a>). Van Oys is a luxurious 5-star Hotel & Spa retreat. Rooms will become available from April 1st. 
           Use the discount code provided in the invite for 15% off. Rates will be flexible, so booking as soon as possible is advised. </p>
         <br>
         <p>In case you are staying at Van Oys and checking in on the day of the wedding, you will be able to check in to your room before the ceremony. 
@@ -943,7 +971,7 @@
           <div class="qa-question">What to wear</div>
           <div class="qa-answer">
             <div class="qa-answer-content">
-              The dresscode is "cocktail attire", see the invite for outfit inspiration!
+              The dresscode is "summer cocktail attire", see the invite for more outfit inspiration!
             </div>
           </div>
         </div>
@@ -1038,6 +1066,7 @@
       const rsvpForm = document.getElementById('rsvpForm');
       const attendanceSelect = document.getElementById('attendance');
       const guestOptions = document.getElementById('guestOptions');
+      const namePlusone = document.getElementById('namePlusone');
       const dietaryOptions = document.getElementById('dietaryOptions');
       const formSuccess = document.getElementById('formSuccess');
 
@@ -1064,12 +1093,16 @@
       attendanceSelect.addEventListener('change', function () {
         if (this.value === 'Yes, I will attend') {
           guestOptions.style.display = 'block';
+          namePlusone.style.display = 'block'; // make separate addEventListener later
           dietaryOptions.style.display = 'block';
         } else {
           guestOptions.style.display = 'none';
+          namePlusone.style.display = 'none'; // make separate addEventListener later
           dietaryOptions.style.display = 'none';
         }
       });
+
+
 
       // Handle form submission
       rsvpForm.addEventListener('submit', function (e) {
