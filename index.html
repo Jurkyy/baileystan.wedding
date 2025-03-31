@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bailey & Stan - RSVP</title>
+  <link rel="icon" type="image/ico" href="images/favicon.ico" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap">
   <style>
@@ -314,8 +315,10 @@
 
     .logo-wrapper {
       display: flex;
-      justify-content: center;  /* horizontal */
-      align-items: center;      /* vertical */
+      justify-content: center;
+      /* horizontal */
+      align-items: center;
+      /* vertical */
 
     }
 
@@ -632,8 +635,7 @@
     .wedding-date,
     .couple-name,
     span,
-    a,
-    textarea {
+    a {
       font-family: 'Atteron', Georgia, serif !important;
     }
   </style>
@@ -671,14 +673,15 @@
 
       <div class="section-content">
         <p>We're excited to welcome you to our celebration!</p>
-      </div>      
+      </div>
 
       <div class="rsvp-greeting">
         <button id="rsvpButton" class="attendance-button">RSVP Now</button>
       </div>
 
       <div class="section-content">
-        <p>This page is meant to help you plan for attending our wedding, especially for our overseas friends & family.</p>
+        <p>This page is meant to help you plan for attending our wedding, especially for our overseas friends & family.
+        </p>
       </div>
 
       <!-- RSVP Modal -->
@@ -714,30 +717,29 @@
             <div class="form-group">
               <label for="attendance">Will you be attending?</label>
               <select id="attendance" name="entry.342903257" required>
-                <option value="">Please select</option>
+                <option disabled selected value>Please select</option>
                 <option value="Yes, I will attend">Yes, I will attend</option>
                 <option value="No, I cannot attend">No, I cannot attend</option>
               </select>
             </div>
 
             <div id="guestOptions" class="form-group" style="display:none;">
-              <label for="guests">Number of guests (including yourself)</label>
-              <select id="guests" name="entry.1018113308">
+              <label for="guestOptions">Number of guests (including yourself) that are invited</label>
+              <select id="guestOptionsSelect" name="entry.1018113308" required>
+                <option disabled selected value>Please select</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
               </select>
             </div>
-            
+
             <div id="namePlusone" class="form-group" style="display:none;">
-              <label for="namePlusone">Name plus one</label>
-              <textarea id="namePlusone" name="entry.918865724" rows="1"
-                placeholder=""></textarea>
+              <label for="namePlusone">Name of plus one</label>
+              <textarea id="namePlusone" name="entry.918865724" rows="1" placeholder=""></textarea>
             </div>
 
             <div id="dietaryOptions" class="form-group" style="display:none;">
-              <label for="dietary">Dietary Restrictions</label>
-              <textarea id="dietary" name="entry.287412210" rows="3"
-                placeholder=""></textarea>
+              <label for="dietary">All Dietary Restrictions</label>
+              <textarea id="dietary" name="entry.287412210" rows="3" placeholder=""></textarea>
             </div>
 
             <button type="submit" class="submit-button">Submit RSVP</button>
@@ -848,7 +850,8 @@
       </div>
       <div class="section-icon">🍽️</div>
       <div class="section-content">
-        <p>The evening before the wedding (29th), we will organize a dinner at a restaurant in Maastricht for those who are already in town. 
+        <p>The evening before the wedding (29th), we will organize a dinner at a restaurant in Maastricht for those who
+          are already in town.
           This is not a mandatory rehearsal dinner, but please mention in the RSVP whether you would like to join.</p>
         <br>
         <p>Some Maastricht restaurant suggestions:</p>
@@ -865,13 +868,19 @@
       </div>
       <div class="section-icon">🏨</div>
       <div class="section-content">
-        <p>Maastricht central station is a 15 minute busride away from the venue, which makes any hotel in or around Maastricht a solid option. We will provide some recommendations in this section over the next couple of weeks.</p>
+        <p>Maastricht central station is a 15 minute busride away from the venue, which makes any hotel in or around
+          Maastricht a solid option. We will provide some recommendations in this section over the next couple of weeks.
+        </p>
         <br>
-        <p>Staying at the Van Oys venue itself is also an option (<a href="https://www.vanoys.com/">Link</a>). Van Oys is a luxurious 5-star Hotel & Spa retreat. Rooms will become available from April 1st. 
-          Use the discount code provided in the invite for 15% off. Rates will be flexible, so booking as soon as possible is advised. </p>
+        <p>Staying at the Van Oys venue itself is also an option (<a href="https://www.vanoys.com/">Link</a>). Van Oys
+          is a luxurious 5-star Hotel & Spa retreat. Rooms will become available from April 1st.
+          Use the discount code provided in the invite for 15% off. Rates will be flexible, so booking as soon as
+          possible is advised. </p>
         <br>
-        <p>In case you are staying at Van Oys and checking in on the day of the wedding, you will be able to check in to your room before the ceremony. 
-          However, there will not be a lot of time to prepare (i.e. it is advised to get ready before arriving at Van Oys).</p>
+        <p>In case you are staying at Van Oys and checking in on the day of the wedding, you will be able to check in to
+          your room before the ceremony.
+          However, there will not be a lot of time to prepare (i.e. it is advised to get ready before arriving at Van
+          Oys).</p>
       </div>
 
       <div class="section-title">
@@ -933,7 +942,8 @@
           <div class="qa-question">Is the wedding indoors or outdoors?</div>
           <div class="qa-answer">
             <div class="qa-answer-content">
-              Our wedding ceremony and dinner are outdoors, in case weather allows. We will most likely get a stretch tent in case of rain.
+              Our wedding ceremony and dinner are outdoors, in case weather allows. We will most likely get a stretch
+              tent in case of rain.
             </div>
           </div>
         </div>
@@ -1066,6 +1076,7 @@
       const rsvpForm = document.getElementById('rsvpForm');
       const attendanceSelect = document.getElementById('attendance');
       const guestOptions = document.getElementById('guestOptions');
+      const guestOptionsSelect = document.getElementById('guestOptionsSelect');
       const namePlusone = document.getElementById('namePlusone');
       const dietaryOptions = document.getElementById('dietaryOptions');
       const formSuccess = document.getElementById('formSuccess');
@@ -1093,12 +1104,18 @@
       attendanceSelect.addEventListener('change', function () {
         if (this.value === 'Yes, I will attend') {
           guestOptions.style.display = 'block';
-          namePlusone.style.display = 'block'; // make separate addEventListener later
           dietaryOptions.style.display = 'block';
         } else {
           guestOptions.style.display = 'none';
-          namePlusone.style.display = 'none'; // make separate addEventListener later
           dietaryOptions.style.display = 'none';
+        }
+      });
+
+      guestOptionsSelect.addEventListener('change', function () {
+        if (this.value === '2' || this.value === 2) {
+          namePlusone.style.display = 'block';
+        } else {
+          namePlusone.style.display = 'none';
         }
       });
 
